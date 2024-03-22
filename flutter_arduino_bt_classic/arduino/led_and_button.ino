@@ -1,6 +1,6 @@
 uint8_t led = 5;
 uint8_t button = 6;
-int bajada = 0;
+uint8_t bajada = 0;
 char data;
 
 void setup()
@@ -12,7 +12,7 @@ void setup()
 
 void loop()
 {
-    
+    // Detectar cuando a presionado el botón con flanco de bajada
     if (digitalRead(button) == HIGH && bajada == 0)
     {   
         bajada = 1;
@@ -23,7 +23,7 @@ void loop()
         bajada = 0;
     }
 
-
+    // 
     if (Serial.available() > 0)
     {
         data = Serial.read();
